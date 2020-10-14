@@ -16,7 +16,10 @@ analyser = Decision()
 @cross_origin()
 def check_product():
     url = request.args.get('url')
-    data = scraper.scrape(url)
+    if url:
+        data = scraper.scrape(url)
+    else:
+        raise Exception('No URL provided')
 
     # call sentiment analysis on the data received
     response = analyser.sentiment_analysis(data)

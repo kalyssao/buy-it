@@ -24,12 +24,9 @@ class Scraper:
 
         # Check the status
         if res.status_code == 200:
-            print(res)
+            # Passes the html to the extractor
+            data = e.extract(res.text)
+            print(data)
+            return data
         else:
-            print('problem, try again')
-            return
-
-        # Passes the html to the extractor
-        data = e.extract(res.text)
-        print(data)
-        return data
+            raise Exception('Problem with request')
