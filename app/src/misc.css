@@ -1,0 +1,33 @@
+.form {
+    display: grid;
+    width: 50%;
+    align-items: center;
+}
+.input {
+    font-size: 0.8rem;
+    line-height: 2.0rem;
+    padding: 10px 20px;
+    margin: 30px 0px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    font-family: inherit;
+    color: black;
+    text-align: center;
+}
+.button {
+    border: 3px solid #fff;
+    background-color: #fff;
+    cursor: pointer;
+    padding: 25px 80px;
+    display: inline-block;
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: inherit;
+    letter-spacing: 1px;
+    
+}
+
+.button :hover {
+    background-color: #f1f1f1;
+}
