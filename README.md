@@ -1,4 +1,4 @@
-# Should I Buy It?
+# Should You Buy That?
 🛒 A sentiment-based online judge for Amazon purchases.
 
 Built with React, Jest, scikit-learn & Flask.
@@ -9,6 +9,4 @@ Given a link to a potential purchase, the application scrapes the product page f
 ![Preview](https://i.imgur.com/WHgHi8d.png)
 
 ## Demo
-![Should I Buy It Demo](https://media.giphy.com/media/l46Cmwy8HWPsMcmw8/giphy.gif)
-
-Helpful resources!
+![Should You Buy That Demo](https://media.giphy.com/media/l46Cmwy8HWPsMcmw8/giphy.gif)
