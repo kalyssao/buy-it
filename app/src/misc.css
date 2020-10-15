@@ -11,21 +11,28 @@
     border: 2px solid #fff;
     border-radius: 10px;
     font-family: inherit;
-    color: black;
+    color: #ffde59;
     text-align: center;
+    background-color: ivory;
 }
+
+::placeholder {
+    color: #ffde59;
+}
+
 .button {
     border: 3px solid #fff;
     background-color: #fff;
+    color: #ffde59;
     cursor: pointer;
-    padding: 25px 80px;
+    padding: 20px 40px;
     display: inline-block;
     margin: 0 auto;
     text-transform: uppercase;
     font-weight: 700;
     font-family: inherit;
     letter-spacing: 1px;
-    
+    border-radius: 10px;
 }
 
 .button :hover {
