@@ -26,7 +26,6 @@ class Scraper:
         if res.status_code == 200:
             # Passes the html to the extractor
             data = e.extract(res.text)
-            print(data)
             return data
         else:
             raise Exception('Problem with request')
