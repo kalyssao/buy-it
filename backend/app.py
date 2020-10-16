@@ -26,5 +26,6 @@ def check_product():
 
     # send back a decision (buy or no buy)
     if response:
-        return jsonify(data['reviews'])
+        # return jsonify(data['reviews'])
+        return jsonify(data)
     return jsonify({"message": "il y a un problem"})
