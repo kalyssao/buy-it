@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 
-function Result() {
+function Result(props) {
     const [verdict, setVerdict] = useState('')
     return (
         <div>
             <p>Here are your results</p>
-            {verdict}
+            {props.product_title}
+            {props.next_page}
+            {props.reviews}
         </div>
     )
 }
