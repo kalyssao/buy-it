@@ -17,15 +17,16 @@ analyser = Decision()
 def check_product():
     url = request.args.get('url')
     if url:
-        data = scraper.scrape(url)
+        json_data = scraper.scrape(url)
     else:
         raise Exception('No URL provided')
-
-    # call sentiment analysis on the data received
+    print('here')
+    # call sentiment analysis on the data received (json)
+    data = analyser.pre_processing(json_data)
     response = analyser.sentiment_analysis(data)
 
     # send back a decision (buy or no buy)
     if response:
-        # return jsonify(data['reviews'])
-        return jsonify(data)
+        # return json response to frontend
+        return jsonify(response)
     return jsonify({"message": "il y a un problem"})
