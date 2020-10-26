@@ -1,4 +1,5 @@
 import requests
+import pandas as pd
 from selectorlib import Extractor
 from fake_useragent import UserAgent
 
