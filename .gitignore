@@ -2,6 +2,9 @@
 ../.DS_Store
 .DS_Store
 
+# training files - pretty large
+*.csv
+.pkl
 
 # dotenv
 .env
