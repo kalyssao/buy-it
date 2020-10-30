@@ -2,9 +2,11 @@ import pickle
 import numpy as np
 import pandas as pd
 
+
 class Decision:
     # takes json and pre-processes - returns data object
-    def pre_processing(self, json_input):
+    @staticmethod
+    def pre_processing(json_input):
         # place reviews in a data frame
         df = pd.DataFrame(json_input['reviews'])
 
@@ -15,8 +17,8 @@ class Decision:
         return df['content']
 
     # takes the array of labels and returns the prevalent response
-    def make_decision(self, labels):
-
+    @staticmethod
+    def make_decision(labels):
         (unique, counts) = np.unique(labels, return_counts=True)
         frequencies = np.asarray((unique, counts)).T
 
@@ -33,7 +35,6 @@ class Decision:
         processed = self.pre_processing(data)
 
         if processed is not None:
-            print("Preprocessed \n", processed)
 
             # load model with pickle
             with open("amazon_naive_bayes.pkl", 'rb') as file:
