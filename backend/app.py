@@ -20,7 +20,7 @@ def check_product():
         json_data = scraper.scrape(url)
     else:
         raise Exception('No URL provided')
-    print('here')
+
     # call sentiment analysis class on the data 
     # received, returns the decision
     decision = analyser.sentiment_analysis(json_data)
