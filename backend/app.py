@@ -21,12 +21,12 @@ def check_product():
     else:
         raise Exception('No URL provided')
     print('here')
-    # call sentiment analysis on the data received (json)
-    data = analyser.pre_processing(json_data)
-    response = analyser.sentiment_analysis(data)
+    # call sentiment analysis class on the data 
+    # received, returns the decision
+    decision = analyser.sentiment_analysis(json_data)
 
     # send back a decision (buy or no buy)
-    if response:
+    if decision:
         # return json response to frontend
-        return jsonify(response)
+        return jsonify(decision)
     return jsonify({"message": "il y a un problem"})
