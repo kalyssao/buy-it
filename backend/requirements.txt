@@ -3,7 +3,6 @@ appnope==0.1.0
 argon2-cffi==20.1.0
 astor==0.8.1
 attrs==19.3.0
-awscli==1.18.69
 backcall==0.1.0
 bleach==3.1.0
 botocore==1.16.19
@@ -89,13 +88,10 @@ scipy==1.5.3
 selectorlib==0.16.0
 Send2Trash==1.5.0
 six==1.12.0
-tensorboard==2.1.0
-tensorflow-estimator==2.1.0
-tensorflow-hub==0.7.0
-tensorflowjs==1.5.2
 termcolor==1.1.0
 terminado==0.9.1
 testpath==0.4.2
+tensorboard==2.1.0
 threadpoolctl==2.1.0
 tornado==6.0.3
 tqdm==4.51.0
