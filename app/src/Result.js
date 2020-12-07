@@ -1,15 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-function Result(props) {
-    const [verdict, setVerdict] = useState('')
+export default function Result({verdict}) {
     return (
         <div>
-            <p>Here are your results</p>
-            {props.product_title}
-            {props.next_page}
-            {props.reviews}
+            { verdict !== null
+                ? 
+                <div className="positive--result">
+                    {/* {product.product_title}
+                    {product.next_page}
+                    {product.reviews} */}
+                    buy it.
+                </div>
+
+                : <div className="negative--result">
+                    Don't buy it!
+                </div>
+            
+            }
         </div>
     )
 }
-
-export default Result
