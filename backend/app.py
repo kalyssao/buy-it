@@ -34,4 +34,4 @@ def check_product():
     if decision is not None:
         # return json response to frontend
         return jsonify(decision)
-    return 'There was a problem', 500
+    return 'There was a problem. Please refresh & try again', 500
