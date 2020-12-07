@@ -27,6 +27,10 @@ class Scraper:
         if res.status_code == 200:
             # Passes the html to the extractor
             data = e.extract(res.text)
+            
+            if data['reviews'] is None:
+                raise Exception ('no reviews for this item')
+
             return data
         else:
             raise Exception('Problem with request')

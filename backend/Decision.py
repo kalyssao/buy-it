@@ -1,7 +1,7 @@
 import pickle
 import numpy as np
 import pandas as pd
-
+from flask import jsonify
 
 class Decision:
     # takes json and pre-processes - returns data object
@@ -26,9 +26,9 @@ class Decision:
         positive = frequencies[1][1]
 
         if negative > positive:
-            return False
-        
-        return True
+            return jsonify(verdict="false")
+
+        return jsonify(verdict="true")
 
     # does pre-processing, loads the saved model and calls it on the data
     def sentiment_analysis(self, data):

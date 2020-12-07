@@ -17,16 +17,21 @@ analyser = Decision()
 def check_product():
     url = request.args.get('url')
     if url:
-        json_data = scraper.scrape(url)
+        try:
+            json_data = scraper.scrape(url)
+        except:
+            return 'No reviews found', 404
+        
     else:
-        raise Exception('No URL provided')
+        # figure out error handling here
+        return 'No url provided', 400
 
     # call sentiment analysis class on the data 
     # received, returns the decision
     decision = analyser.sentiment_analysis(json_data)
 
     # send back a decision (buy or no buy)
-    if decision:
+    if decision is not None:
         # return json response to frontend
         return jsonify(decision)
-    return jsonify({"message": "il y a un problem"})
+    return 'There was a problem', 500
