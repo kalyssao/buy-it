@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
 import Banner from '../components/Banner'
 import Search from '../components/Search'
@@ -6,24 +6,40 @@ import Search from '../components/Search'
 import { api_service } from '../services/api'
 
 export default function Home() {
-    const [ decision, setDecision ] = useState()
     let history = useHistory()
 
     const parsePage = (query) => {
         api_service.get(`/should-i-buy?url=${query}`)
         .then((res) => {
             console.log(res.data.decision)
-            setDecision(true)
+            history.push({
+                pathname: '/result',
+                decision: res.data.decision,
+                message: 'Success!'
+            })
         })
         .catch((err) => {
+            var verdict;
+            var message;
             const code = err.response.status
-            if(code === 400){
-                history.push('/')
-            } else if(code === 404){
-                // setNoReviews(true)
-            } else {
-                // setProblem(true)
+            switch(code){
+                case 400:
+                    verdict = null
+                    message = "No url provided"
+                    break;
+                case 404:
+                    verdict = null
+                    message = "No reviews found"
+                    break;
+                default:
+                    verdict = null
+                    message = "There was a problem"
             }
+            history.push({
+                    pathname: '/results',
+                    verdict: verdict,
+                    message: message
+            })
 
         })
     }
