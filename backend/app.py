@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, Response
 from flask_cors import CORS, cross_origin
 from Scraper import Scraper
 from Decision import Decision
@@ -24,7 +24,7 @@ def check_product():
         
     else:
         # figure out error handling here
-        return 'No url provided', 400
+        return Response('No url provided', status=400)
 
     # call sentiment analysis class on the data 
     # received, returns the decision
@@ -33,5 +33,5 @@ def check_product():
     # send back a decision (buy or no buy)
     if decision is not None:
         # return json response to frontend
-        return jsonify(decision)
+        return jsonify(decision=decision)
     return 'There was a problem. Please refresh & try again', 500

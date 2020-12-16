@@ -26,9 +26,9 @@ class Decision:
         positive = frequencies[1][1]
 
         if negative > positive:
-            return jsonify(verdict="false")
+            return False
 
-        return jsonify(verdict="true")
+        return True
 
     # does pre-processing, loads the saved model and calls it on the data
     def sentiment_analysis(self, data):
@@ -41,9 +41,8 @@ class Decision:
                 pickled_model = pickle.load(file)
             
             sentiment_labels = pickled_model.predict(processed)
-            decision = self.make_decision(sentiment_labels)
 
-            return decision
+            return self.make_decision(sentiment_labels)
 
         else:
             return None
