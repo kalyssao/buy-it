@@ -1,7 +1,8 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import Banner from '../components/Banner'
 import Search from '../components/Search'
+import Footer from '../components/Footer'
+import { Grid, Container } from 'semantic-ui-react'
 
 import { api_service } from '../services/api'
 
@@ -45,9 +46,12 @@ export default function Home() {
     }
 
     return (
-        <div className="ui grid container">
-            <Banner/>
-            <Search searchProduct={ query => parsePage(query)}></Search>
-        </div>
+        <Grid textAlign="center" style={{ height: '100vh' }} >
+            <Grid.Column>
+                <Search searchProduct={ query => parsePage(query)}/>
+            </Grid.Column>
+            
+            
+        </Grid>
     )
 }
