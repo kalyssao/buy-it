@@ -9,4 +9,4 @@ Given a link to a potential purchase, the application scrapes the product page f
 ![Preview](https://i.imgur.com/WHgHi8d.png)
 
 ## Demo
-![Should You Buy That Demo](https://media.giphy.com/media/l46Cmwy8HWPsMcmw8/giphy.gif)
+![Should You Buy That Demo](https://i.imgur.com/jO1upfQ.gif)
