@@ -1,25 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Search from '../components/Search'
-import Footer from '../components/Footer'
-import { Grid, Container } from 'semantic-ui-react'
+// import Footer from '../components/Footer'
+import { Grid, Dimmer, Loader } from 'semantic-ui-react'
 
 import { api_service } from '../services/api'
 
 export default function Home() {
     let history = useHistory()
+    const [loading, setLoading] = useState()
 
     const parsePage = (query) => {
+        setLoading(true)
         api_service.get(`/should-i-buy?url=${query}`)
         .then((res) => {
-            console.log(res.data.decision)
+            console.log(res.data)
+            setLoading(false)
             history.push({
                 pathname: '/result',
-                decision: res.data.decision,
-                message: 'Success!'
+                the_decision: res.data.decision,
+                prod_title: res.data.title,
+                prod_img: res.data.img,
+                prod_rating: res.data.rating,
+                status: 200
             })
         })
         .catch((err) => {
+            console.log(err.response)
             var verdict;
             var message;
             const code = err.response.status
@@ -37,21 +44,22 @@ export default function Home() {
                     message = "There was a problem"
             }
             history.push({
-                    pathname: '/results',
-                    verdict: verdict,
-                    message: message
+                pathname: '/result',
+                the_decision: verdict,
+                message: message,
+                status: code
             })
-
         })
     }
 
     return (
         <Grid textAlign="center" style={{ height: '100vh' }} >
             <Grid.Column>
+                <Dimmer active={loading} inverted>
+                    <Loader size="medium" content="Judging"/>
+                </Dimmer>
                 <Search searchProduct={ query => parsePage(query)}/>
             </Grid.Column>
-            
-            
         </Grid>
     )
 }
