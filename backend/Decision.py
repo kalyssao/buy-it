@@ -22,6 +22,8 @@ class Decision:
         (unique, counts) = np.unique(labels, return_counts=True)
         frequencies = np.asarray((unique, counts)).T
 
+        print(frequencies)
+
         negative = frequencies[0][1]
         positive = frequencies[1][1]
 
