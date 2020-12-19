@@ -35,3 +35,5 @@ include/
 pip-selfcheck.json
 
 app/backend/static/bundle.js
+
+*.gif
