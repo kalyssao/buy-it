@@ -27,11 +27,16 @@ def check_product():
         return Response('No url provided', status=400)
 
     # call sentiment analysis class on the data 
-    # received, returns the decision
+    # received, returns the decision, clean the image url
     decision = analyser.sentiment_analysis(json_data)
+    title = json_data['product_title']
+    img_url = json_data["product_image"]
+    img_url = img_url.rstrip('\n')
+    img_url = img_url.lstrip('\n')
+    rating = json_data["product_rating"]
 
     # send back a decision (buy or no buy)
     if decision is not None:
-        # return json response to frontend
-        return jsonify(decision=decision)
+        # return json response (decision, image & notable review) to frontend
+        return jsonify(decision=decision, title=title, img=img_url, rating=rating)
     return 'There was a problem. Please refresh & try again', 500
