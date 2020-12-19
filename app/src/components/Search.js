@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Segment, Form, Header, Container, Input, Button } from 'semantic-ui-react'
+import { Form, Header, Container, Button } from 'semantic-ui-react'
 
 const Search = ({ searchProduct }) => {
     const [query, setQuery] = useState('')
@@ -11,7 +11,7 @@ const Search = ({ searchProduct }) => {
     return (
         <Container text style={{ margin: '15em 0em 0em', padding: '5em 0em' }}>
             <Header size="huge">Should You Buy That?</Header>
-            <Header style={{ marginBottom: '2.5em' }} size="small">Let me be the judge of that.</Header>   
+            <Header style={{ marginBottom: '2em' }} size="small">Let me be the judge of that.</Header>   
             
             <Container>
                 <Form onSubmit={handleSumbit}>
@@ -21,7 +21,7 @@ const Search = ({ searchProduct }) => {
                         placeholder="Enter product URL here"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}/>
-                        <Button fluid onClick={() => searchProduct(query)} className="button" type="submit">JUDGE</Button>
+                        <Button color="teal" fluid onClick={() => searchProduct(query)} style={{ marginTop: '1.5em' }} type="submit">JUDGE</Button>
                 </Form>
             </Container>
         </Container>
