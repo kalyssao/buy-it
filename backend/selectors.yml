@@ -1,5 +1,11 @@
 product_title:
-    css: 'h1 a[data-hook="product-link"]'
+    css: 'h1.a-size-large span[id="productTitle"]'
+    type: Text
+product_image:
+    css: '#landingImage'
+    type: Image
+product_rating:
+    css: '#acrPopover > span.a-declarative > a > i.a-icon.a-icon-star.a-star-4-5 > span'
     type: Text
 reviews:
     css: 'div.review div.a-section.celwidget'
