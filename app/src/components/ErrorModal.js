@@ -1,9 +1,10 @@
 import React from 'react'
+import { Header } from 'semantic-ui-react'
 
-export default function ErrorModal({ message }) {
+export default function ErrorModal({ errorMessage }) {
     return (
-        <div>
-            {message}
-        </div>
+        <Header size="large" color="teal">
+            {errorMessage}
+        </Header>
     )
 }
